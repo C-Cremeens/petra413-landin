@@ -6,13 +6,21 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-4 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="font-medium text-slate-200">Chris Cremeens</p>
-          <p>© {new Date().getFullYear()} All rights reserved.</p>
+          <p>Practical software for field, shop, and operations workflows.</p>
         </div>
-        <div className="flex gap-5">
+        <div className="flex flex-wrap gap-5">
+          <Link href="#content" className="hover:text-white">
+            Back to top
+          </Link>
           <Link href="https://github.com/C-Cremeens" target="_blank" rel="noreferrer" className="hover:text-white">
             GitHub
           </Link>
-          <Link href="https://www.linkedin.com/in/chris-cremeens-45865a226/" target="_blank" rel="noreferrer" className="hover:text-white">
+          <Link
+            href="https://www.linkedin.com/in/chris-cremeens-45865a226/"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-white"
+          >
             LinkedIn
           </Link>
         </div>
