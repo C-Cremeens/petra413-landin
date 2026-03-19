@@ -8,19 +8,26 @@ import { SectionWrapper } from '@/components/section-wrapper';
 const skillGroups = [
   {
     title: 'Development',
-    skills: ['C#', '.NET', 'Blazor', 'APIs'],
+    skills: ['C#', '.NET', 'Blazor', 'Next.js'],
   },
   {
     title: 'Tools',
-    skills: ['Azure DevOps', 'SQL Server', 'Autodesk APIs'],
+    skills: ['Azure DevOps', 'SQL Server', 'Autodesk APIs', 'Vercel'],
   },
   {
     title: 'Other',
-    skills: ['Automation', 'IoT', 'Process Improvement'],
+    skills: ['Automation', 'IoT', 'Process Improvement', 'Field workflows'],
   },
 ];
 
 const projects = [
+  {
+    title: 'Field2Fab Preview',
+    description:
+      'A preview duct fitting ordering app concept for HVAC field teams, scoped around straights, elbows, and square-to-round transitions before expanding further.',
+    tag: 'New concept',
+    href: '#field2fab',
+  },
   {
     title: 'TG-Tools / Internal Tools',
     description:
@@ -33,13 +40,73 @@ const projects = [
       'Workflow helpers for turning manual steps into repeatable processes, saving time and reducing avoidable friction for teams.',
     tag: 'Process automation',
   },
-  {
-    title: 'IoT / ESP32 Projects',
-    description:
-      'Hands-on connected device experiments that blend software, hardware, and practical problem solving in the field.',
-    tag: 'Embedded + IoT',
-  },
 ];
+
+const previewScope = [
+  'Straight duct in square and round configurations',
+  'Elbows for square and round duct',
+  'Square-to-round transitions',
+  'Connector selection for each end of the fitting',
+  'Material selection, gauge/pressure class, and notes',
+  'Email-ready order summary sent to the address entered by the user',
+];
+
+const codexPrompt = `Build a preview-first web application called Field2Fab for the HVAC sheet metal industry. The deployment target is Vercel and the production URL will be https://field2Fab.petra413.com. The application is intended for field personnel who need a fast way to order standard duct fittings from a phone, tablet, or desktop browser.
+
+Primary goal:
+Create a polished MVP that lets a user configure a fitting, review the order details, and submit the order so the app emails the order summary to the email address the user entered.
+
+Preview-only scope for this first release:
+- Straight duct: square and round
+- Elbows: square and round
+- Square-to-round fittings
+- No full catalog yet; position the app clearly as a preview/beta
+
+Core UX requirements:
+- Mobile-first responsive design suitable for field use
+- Clear step-by-step fitting selection flow
+- Fast entry with large tap targets and minimal friction
+- A persistent preview badge or messaging that this is a limited preview
+- Review screen showing all selected options before submit
+
+Per-item configuration requirements:
+- Fitting type
+- Shape/category (square, round, square-to-round where applicable)
+- Dimensions appropriate to the fitting type
+- Connector type for each end independently
+- Material type
+- Pressure class
+- Quantity
+- Optional job name, tag/mark number, and install notes
+- Requestor name, company, and email address
+
+Business rules:
+- Show only fields relevant to the selected fitting type
+- Connector options should support common HVAC fabrication workflows
+- Validation should prevent incomplete or impossible submissions
+- Submitted orders should generate a clean email summary that is easy for a fabrication shop to read
+- Include clear messaging that orders are preview/demo requests unless the backend is later connected to production systems
+
+Technical direction:
+- Use Next.js with TypeScript and a clean component-based architecture
+- Prepare the app for Vercel deployment
+- Prefer server actions or API routes for submission handling
+- Structure data so more fitting families can be added later
+- Add placeholder/mock email handling for now if live email credentials are not present
+- Include sensible seed data/constants for fitting options, connector types, materials, and pressure classes
+
+Suggested pages/sections:
+- Landing page with concise explanation of the preview
+- Order builder page/form
+- Review/confirmation state
+- Optional admin-friendly order summary layout/component for future reuse
+
+Visual direction:
+- Professional industrial feel
+- Clean typography, strong contrast, and obvious form hierarchy
+- Interface should feel practical, fast, and trustworthy rather than flashy
+
+Please generate the project structure, UI, validation, seed option data, and submission flow for this preview release, and leave comments where production integrations such as transactional email or ERP/shop system connections would be added later.`;
 
 export default function HomePage() {
   return (
@@ -60,32 +127,32 @@ export default function HomePage() {
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Button href="#projects">View My Work</Button>
-              <Button href="#contact" variant="secondary">
-                Contact Me
+              <Button href="#field2fab" variant="secondary">
+                New app concept
               </Button>
             </div>
           </div>
 
           <div className="section-border animate-float rounded-[2rem] p-8 shadow-glow">
             <div className="flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-slate-400">
-              <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" aria-hidden="true" />
-              Practical systems thinking
+              <span className="h-2.5 w-2.5 rounded-full bg-amber-400" aria-hidden="true" />
+              Now planning
             </div>
             <div className="mt-8 space-y-6">
               <div>
-                <p className="text-sm text-slate-400">Focus</p>
+                <p className="text-sm text-slate-400">Next launch concept</p>
                 <p className="mt-2 text-lg font-medium text-white">
-                  Building software that supports field operations, engineering teams, and continuous improvement.
+                  Field2Fab, a preview ordering app for HVAC duct fittings built around field-to-shop communication.
                 </p>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-slate-400">Background</p>
-                  <p className="mt-2 font-medium text-white">Construction + fabrication</p>
+                  <p className="text-sm text-slate-400">URL</p>
+                  <p className="mt-2 font-medium text-white">field2Fab.petra413.com</p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-slate-400">Stack</p>
-                  <p className="mt-2 font-medium text-white">.NET, Blazor, automation</p>
+                  <p className="text-sm text-slate-400">Initial scope</p>
+                  <p className="mt-2 font-medium text-white">Straights, elbows, square-to-rounds</p>
                 </div>
               </div>
             </div>
@@ -116,13 +183,69 @@ export default function HomePage() {
         id="projects"
         eyebrow="Portfolio"
         title="Featured work and what’s next"
-        description="The Bellin Training Tracker is the current flagship project, with additional tooling and automation work ready to be expanded here over time."
+        description="The Bellin Training Tracker is the current flagship project, and Field2Fab is now framed as the next focused concept in the pipeline."
       >
         <FeaturedProjectPanel />
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper
+        id="field2fab"
+        eyebrow="New Feature"
+        title="Field2Fab preview concept"
+        description="This new section turns your rough idea into a launch-ready concept brief and a Codex prompt you can reuse when creating the Vercel project."
+      >
+        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <article className="section-border rounded-[2rem] p-8">
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-steel-400">Preview app</p>
+                <h3 className="mt-3 text-3xl font-semibold text-white">field2Fab.petra413.com</h3>
+              </div>
+              <span className="rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-amber-200">
+                Preview only
+              </span>
+            </div>
+
+            <p className="mt-6 leading-7 text-slate-300">
+              A focused ordering experience for HVAC field personnel to request common duct fittings and send a clean order summary to the email address they provide.
+            </p>
+
+            <div className="mt-8 rounded-3xl border border-white/10 bg-slate-950/60 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Initial release scope</p>
+              <ul className="mt-5 space-y-4 text-slate-200">
+                {previewScope.map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-steel-400" aria-hidden="true" />
+                    <span className="leading-7">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+
+          <article className="section-border rounded-[2rem] p-8">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-steel-400">Prompt for Codex</p>
+                <h3 className="mt-3 text-2xl font-semibold text-white">Project brief, refined</h3>
+              </div>
+              <Button href="mailto:?subject=Field2Fab%20Codex%20Prompt&body=Use%20the%20prompt%20from%20field2Fab.petra413.com%20to%20generate%20the%20preview%20app." variant="secondary">
+                Email idea
+              </Button>
+            </div>
+
+            <div className="mt-6 overflow-hidden rounded-3xl border border-white/10 bg-slate-950/80">
+              <div className="border-b border-white/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                Ready to paste into Codex
+              </div>
+              <pre className="max-h-[38rem] overflow-auto whitespace-pre-wrap px-4 py-5 text-sm leading-7 text-slate-200">{codexPrompt}</pre>
+            </div>
+          </article>
         </div>
       </SectionWrapper>
 
@@ -221,10 +344,10 @@ export default function HomePage() {
                   name="message"
                   rows={5}
                   className="rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-white outline-none transition focus:border-steel-400"
-                  placeholder="A short note about the problem, project, or workflow you want to improve."
+                  placeholder="A rough idea, a workflow problem, or a tool you want to build"
                 />
               </label>
-              <Button href="mailto:chris@example.com?subject=Project%20Inquiry">Send by email</Button>
+              <Button href="mailto:chris@example.com">Start the conversation</Button>
             </div>
           </form>
         </div>
