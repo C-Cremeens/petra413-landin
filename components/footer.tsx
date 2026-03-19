@@ -9,10 +9,10 @@ export function Footer() {
           <p>© {new Date().getFullYear()} All rights reserved.</p>
         </div>
         <div className="flex gap-5">
-          <Link href="https://github.com/your-github" target="_blank" rel="noreferrer" className="hover:text-white">
+          <Link href="https://github.com/C-Cremeens" target="_blank" rel="noreferrer" className="hover:text-white">
             GitHub
           </Link>
-          <Link href="https://linkedin.com/in/your-linkedin" target="_blank" rel="noreferrer" className="hover:text-white">
+          <Link href="https://www.linkedin.com/in/chris-cremeens-45865a226/" target="_blank" rel="noreferrer" className="hover:text-white">
             LinkedIn
           </Link>
         </div>
