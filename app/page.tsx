@@ -235,6 +235,39 @@ export default function HomePage() {
         </div>
       </SectionWrapper>
 
+
+      <SectionWrapper
+        id="heart"
+        eyebrow="Personal"
+        title="The Heart of the Dev"
+        description="What I build is shaped by more than just tools and workflows."
+      >
+        <div className="grid gap-6 lg:grid-cols-3">
+          {[
+            {
+              title: 'Faith',
+              body:
+                'My faith keeps me grounded. It shapes how I approach work, how I treat people, and how I think about responsibility in what I build and contribute.',
+            },
+            {
+              title: 'Family',
+              body:
+                'Family is the reason behind the work. It’s a reminder to build things that matter, use time well, and keep perspective on what’s actually important.',
+            },
+            {
+              title: 'Fun',
+              body:
+                'I enjoy building outside of work too—whether that’s side projects, experimenting with new ideas, or just staying curious. That mindset carries into everything I create.',
+            },
+          ].map((item) => (
+            <article key={item.title} className="section-border rounded-3xl p-6">
+              <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+              <p className="mt-4 leading-7 text-slate-300">{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </SectionWrapper>
+
       <SectionWrapper
         id="contact"
         eyebrow="Contact"
