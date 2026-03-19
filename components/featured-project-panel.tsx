@@ -21,7 +21,7 @@ export function FeaturedProjectPanel() {
             A focused training dashboard designed to make progress visible, motivate participation, and give teams a simple way to stay accountable during training cycles.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button href="https://your-bellin-app-link.com" external>
+            <Button href="https://bellin.petra413.com/" external>
               View Project
             </Button>
             <span className="inline-flex items-center rounded-full border border-white/10 px-4 py-2 text-sm text-slate-300">
