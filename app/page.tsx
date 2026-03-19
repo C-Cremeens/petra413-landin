@@ -22,14 +22,6 @@ const skillGroups = [
 
 const projects = [
   {
-    title: 'Field2Fab',
-    description:
-      'A field-to-fabrication ordering concept for HVAC teams, focused on faster handoffs for straights, elbows, and square-to-round transitions.',
-    tag: 'Concept preview',
-    href: 'https://field2fab.petra413.com',
-    external: true,
-  },
-  {
     title: 'TG-Tools / Internal Tools',
     description:
       'A growing set of internal utilities aimed at reducing repetitive tasks, improving visibility, and supporting day-to-day engineering work.',
@@ -125,7 +117,7 @@ export default function HomePage() {
         id="projects"
         eyebrow="Portfolio"
         title="Featured work and what’s next"
-        description="Bellin Training Tracker remains the flagship project, with Field2Fab presented alongside it as a polished concept preview in the same portfolio language."
+        description="Bellin Training Tracker remains the flagship project, while Field2Fab is highlighted once here as the current concept preview alongside other internal and automation work."
       >
         <FeaturedProjectPanel />
         <article className="section-border relative mt-8 overflow-hidden rounded-[2rem] p-8 shadow-glow sm:p-10">
