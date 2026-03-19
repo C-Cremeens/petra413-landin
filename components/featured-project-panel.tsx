@@ -24,9 +24,6 @@ export function FeaturedProjectPanel() {
             <Button href="https://bellin.petra413.com/" external>
               View Project
             </Button>
-            <span className="inline-flex items-center rounded-full border border-white/10 px-4 py-2 text-sm text-slate-300">
-              Replace link when live
-            </span>
           </div>
         </div>
         <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/70 p-6">
