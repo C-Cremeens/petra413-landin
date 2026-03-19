@@ -42,14 +42,25 @@ const field2FabHighlights = [
   'Built around cleaner field-to-shop communication and handoff speed',
 ];
 
+const quickFacts = [
+  { label: 'Focus', value: 'Workflow automation' },
+  { label: 'Industry context', value: 'Construction + fabrication' },
+  { label: 'Primary goal', value: 'Useful software that ships' },
+];
+
+const contactPoints = [
+  'Talk through an internal tool idea or process bottleneck',
+  'Review a workflow that needs better visibility or fewer manual steps',
+  'Prototype a practical app for a field, shop, or office team',
+];
 
 export default function HomePage() {
   return (
-    <main id="top">
+    <main id="content">
       <Navbar />
 
-      <section className="px-6 pb-20 pt-16 sm:px-8 lg:px-12 lg:pb-24 lg:pt-24">
-        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+      <section className="px-6 pb-20 pt-14 sm:px-8 lg:px-12 lg:pb-24 lg:pt-20">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div className="animate-fadeUp">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-steel-400">
               Application Engineer & Developer
@@ -62,10 +73,18 @@ export default function HomePage() {
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Button href="#projects">View My Work</Button>
-              <Button href="https://field2fab.petra413.com" variant="secondary" external>
-                Open Field2Fab
+              <Button href="#contact" variant="secondary">
+                Start a Conversation
               </Button>
             </div>
+            <dl className="mt-10 grid gap-4 sm:grid-cols-3">
+              {quickFacts.map((item) => (
+                <div key={item.label} className="section-border rounded-3xl p-4">
+                  <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">{item.label}</dt>
+                  <dd className="mt-3 text-sm font-medium leading-6 text-slate-100">{item.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
           <div className="section-border animate-float rounded-[2rem] p-8 shadow-glow">
@@ -76,19 +95,25 @@ export default function HomePage() {
             <div className="mt-8 space-y-6">
               <div>
                 <p className="text-sm text-slate-400">Next launch concept</p>
-                <p className="mt-2 text-lg font-medium text-white">
+                <p className="mt-2 text-lg font-medium leading-8 text-white">
                   Field2Fab, a preview ordering app for HVAC duct fittings built around field-to-shop communication.
                 </p>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-slate-400">URL</p>
-                  <p className="mt-2 font-medium text-white">field2Fab.petra413.com</p>
+                  <p className="text-sm text-slate-400">Live preview</p>
+                  <p className="mt-2 font-medium text-white">field2fab.petra413.com</p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                   <p className="text-sm text-slate-400">Initial scope</p>
                   <p className="mt-2 font-medium text-white">Straights, elbows, square-to-rounds</p>
                 </div>
+              </div>
+              <div className="rounded-[1.75rem] border border-steel-400/20 bg-steel-400/10 p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-steel-200">Why it matters</p>
+                <p className="mt-3 leading-7 text-slate-200">
+                  The concept stays intentionally narrow so the experience feels fast, clear, and directly aligned with real handoff pain points between the field and the shop.
+                </p>
               </div>
             </div>
           </div>
@@ -216,15 +241,23 @@ export default function HomePage() {
         title="Let’s build something useful"
         description="If you have a workflow that needs cleanup, a manual process that should be automated, or an idea worth prototyping, I’d be glad to talk."
       >
-        <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr]">
+        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="section-border rounded-[2rem] p-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-steel-400">Reach out</p>
-            <a href="mailto:chris@example.com" className="mt-4 inline-block text-2xl font-semibold text-white hover:text-steel-400">
-              chris@example.com
-            </a>
-            <p className="mt-4 leading-7 text-slate-300">
-              Replace the email, GitHub, LinkedIn, and project URL placeholders with your real links before going live.
-            </p>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-steel-400">Good fit if you want to</p>
+            <ul className="mt-6 space-y-4">
+              {contactPoints.map((item) => (
+                <li key={item} className="flex gap-3 text-slate-200">
+                  <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-steel-400" aria-hidden="true" />
+                  <span className="leading-7">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 rounded-[1.75rem] border border-white/10 bg-slate-950/60 p-5">
+              <p className="text-sm text-slate-400">Best next step</p>
+              <p className="mt-3 leading-7 text-slate-200">
+                Share a little context in the form and I can get a better sense of the workflow, bottleneck, or tool idea you have in mind.
+              </p>
+            </div>
           </div>
           <ContactForm />
         </div>
