@@ -7,6 +7,7 @@ export function Footer() {
         <div>
           <p className="font-medium text-slate-200">Chris Cremeens</p>
           <p>Practical software for field, shop, and operations workflows.</p>
+          <p>petra413 stands for Petra, Greek for rock like God, and 413 from Philippians 4:13.</p>
         </div>
         <div className="flex flex-wrap gap-5">
           <Link href="#content" className="hover:text-white">
