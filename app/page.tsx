@@ -1,4 +1,5 @@
 import { Button } from '@/components/button';
+import { ContactForm } from '@/components/contact-form';
 import { FeaturedProjectPanel } from '@/components/featured-project-panel';
 import { Footer } from '@/components/footer';
 import { Navbar } from '@/components/navbar';
@@ -233,38 +234,7 @@ export default function HomePage() {
               Replace the email, GitHub, LinkedIn, and project URL placeholders with your real links before going live.
             </p>
           </div>
-          <form className="section-border rounded-[2rem] p-8" action="#" method="post">
-            <div className="grid gap-5">
-              <label className="grid gap-2 text-sm text-slate-300">
-                Name
-                <input
-                  type="text"
-                  name="name"
-                  className="rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-white outline-none transition focus:border-steel-400"
-                  placeholder="Your name"
-                />
-              </label>
-              <label className="grid gap-2 text-sm text-slate-300">
-                Email
-                <input
-                  type="email"
-                  name="email"
-                  className="rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-white outline-none transition focus:border-steel-400"
-                  placeholder="you@example.com"
-                />
-              </label>
-              <label className="grid gap-2 text-sm text-slate-300">
-                What are you working on?
-                <textarea
-                  name="message"
-                  rows={5}
-                  className="rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-white outline-none transition focus:border-steel-400"
-                  placeholder="A rough idea, a workflow problem, or a tool you want to build"
-                />
-              </label>
-              <Button href="mailto:chris@example.com">Start the conversation</Button>
-            </div>
-          </form>
+          <ContactForm />
         </div>
       </SectionWrapper>
 
