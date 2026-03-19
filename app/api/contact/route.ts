@@ -40,7 +40,8 @@ export async function POST(request: Request) {
     },
     body: JSON.stringify({
       from: fromEmail,
-      to: [fromEmail],
+      to: ['Chris.Cremeens@outlook.com'],
+      cc: [trimmedEmail],
       reply_to: trimmedEmail,
       subject: `New portfolio contact from ${trimmedName}`,
       text: [
