@@ -22,11 +22,12 @@ const skillGroups = [
 
 const projects = [
   {
-    title: 'Field2Fab Preview',
+    title: 'Field2Fab',
     description:
-      'A preview duct fitting ordering app concept for HVAC field teams, scoped around straights, elbows, and square-to-round transitions before expanding further.',
-    tag: 'New concept',
-    href: '#field2fab',
+      'A field-to-fabrication ordering concept for HVAC teams, focused on faster handoffs for straights, elbows, and square-to-round transitions.',
+    tag: 'Concept preview',
+    href: 'https://field2fab.petra413.com',
+    external: true,
   },
   {
     title: 'TG-Tools / Internal Tools',
@@ -40,6 +41,12 @@ const projects = [
       'Workflow helpers for turning manual steps into repeatable processes, saving time and reducing avoidable friction for teams.',
     tag: 'Process automation',
   },
+];
+
+const field2FabHighlights = [
+  'Live preview for a focused HVAC fitting ordering flow',
+  'Early scope centered on straights, elbows, and square-to-round transitions',
+  'Built around cleaner field-to-shop communication and handoff speed',
 ];
 
 
@@ -62,8 +69,8 @@ export default function HomePage() {
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Button href="#projects">View My Work</Button>
-              <Button href="#field2fab" variant="secondary">
-                New app concept
+              <Button href="https://field2fab.petra413.com" variant="secondary" external>
+                Open Field2Fab
               </Button>
             </div>
           </div>
@@ -118,64 +125,43 @@ export default function HomePage() {
         id="projects"
         eyebrow="Portfolio"
         title="Featured work and what’s next"
-        description="The Bellin Training Tracker is the current flagship project, and Field2Fab is now framed as the next focused concept in the pipeline."
+        description="Bellin Training Tracker remains the flagship project, with Field2Fab presented alongside it as a polished concept preview in the same portfolio language."
       >
         <FeaturedProjectPanel />
+        <article className="section-border relative mt-8 overflow-hidden rounded-[2rem] p-8 shadow-glow sm:p-10">
+          <div className="absolute inset-0 bg-grid bg-[size:32px_32px] opacity-20" aria-hidden="true" />
+          <div className="absolute left-0 top-0 h-56 w-56 rounded-full bg-steel-500/10 blur-3xl" aria-hidden="true" />
+          <div className="relative grid gap-10 lg:grid-cols-[1.35fr_0.9fr] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-steel-400">Concept Preview</p>
+              <h3 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Field2Fab</h3>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+                A field-to-fabrication ordering concept for HVAC teams that reduces friction between the job site and the shop with a simple, focused ordering flow.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button href="https://field2fab.petra413.com" external>
+                  View Project
+                </Button>
+              </div>
+            </div>
+            <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/70 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Key Highlights</p>
+              <ul className="mt-5 space-y-4">
+                {field2FabHighlights.map((highlight) => (
+                  <li key={highlight} className="flex gap-3 text-slate-200">
+                    <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-steel-400" aria-hidden="true" />
+                    <span className="leading-7">{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}
         </div>
-      </SectionWrapper>
-
-      <SectionWrapper
-        id="field2fab"
-        eyebrow="New Feature"
-        title="Field2Fab preview concept"
-        description="Field2Fab is presented as a simple live preview link so visitors can jump straight into the experience."
-      >
-        <article className="section-border max-w-4xl rounded-[2rem] p-8">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-steel-400">Open the preview</p>
-            <h3 className="mt-3 text-2xl font-semibold text-white sm:text-3xl">Try Field2Fab now</h3>
-            <p className="mt-6 max-w-3xl leading-7 text-slate-300">
-              The preview app is available at
-              <a
-                href="https://field2fab.petra413.com"
-                target="_blank"
-                rel="noreferrer"
-                className="ml-2 font-semibold text-steel-300 underline decoration-steel-400/60 underline-offset-4 transition hover:text-white"
-              >
-                field2fab.petra413.com
-              </a>
-              . Open it to explore the current ordering flow and see how the concept is shaping up.
-            </p>
-          </div>
-
-          <div className="mt-8 rounded-3xl border border-white/10 bg-slate-950/80 p-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">What to expect</p>
-            <ul className="mt-5 space-y-4 text-slate-200">
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-steel-400" aria-hidden="true" />
-                <span className="leading-7">Direct access to the live preview experience.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-steel-400" aria-hidden="true" />
-                <span className="leading-7">A focused demo centered on early HVAC fitting ordering workflows.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-steel-400" aria-hidden="true" />
-                <span className="leading-7">A simple handoff path for anyone who wants to review the concept in action.</span>
-              </li>
-            </ul>
-
-            <div className="mt-8">
-              <Button href="https://field2fab.petra413.com" variant="secondary" external>
-                Visit Field2Fab Preview
-              </Button>
-            </div>
-          </div>
-        </article>
       </SectionWrapper>
 
       <SectionWrapper
