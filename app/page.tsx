@@ -42,15 +42,6 @@ const projects = [
   },
 ];
 
-const previewScope = [
-  'Straight duct in square and round configurations',
-  'Elbows for square and round duct',
-  'Square-to-round transitions',
-  'Connector selection for each end of the fitting',
-  'Material selection, gauge/pressure class, and notes',
-  'Email-ready order summary sent to the address entered by the user',
-];
-
 
 export default function HomePage() {
   return (
@@ -141,80 +132,50 @@ export default function HomePage() {
         id="field2fab"
         eyebrow="New Feature"
         title="Field2Fab preview concept"
-        description="Field2Fab is now presented as a live preview app concept with a direct link so visitors can open the experience right away."
+        description="Field2Fab is presented as a simple live preview link so visitors can jump straight into the experience."
       >
-        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <article className="section-border rounded-[2rem] p-8">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-steel-400">Preview app</p>
-                <h3 className="mt-3 text-3xl font-semibold text-white">field2Fab.petra413.com</h3>
-              </div>
-              <span className="rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-amber-200">
-                Preview only
-              </span>
-            </div>
-
-            <p className="mt-6 leading-7 text-slate-300">
-              A focused ordering experience for HVAC field personnel to request common duct fittings and send a clean order summary to the email address they provide.
+        <article className="section-border max-w-4xl rounded-[2rem] p-8">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-steel-400">Open the preview</p>
+            <h3 className="mt-3 text-2xl font-semibold text-white sm:text-3xl">Try Field2Fab now</h3>
+            <p className="mt-6 max-w-3xl leading-7 text-slate-300">
+              The preview app is available at
+              <a
+                href="https://field2fab.petra413.com"
+                target="_blank"
+                rel="noreferrer"
+                className="ml-2 font-semibold text-steel-300 underline decoration-steel-400/60 underline-offset-4 transition hover:text-white"
+              >
+                field2fab.petra413.com
+              </a>
+              . Open it to explore the current ordering flow and see how the concept is shaping up.
             </p>
+          </div>
 
-            <div className="mt-8 rounded-3xl border border-white/10 bg-slate-950/60 p-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Initial release scope</p>
-              <ul className="mt-5 space-y-4 text-slate-200">
-                {previewScope.map((item) => (
-                  <li key={item} className="flex gap-3">
-                    <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-steel-400" aria-hidden="true" />
-                    <span className="leading-7">{item}</span>
-                  </li>
-                ))}
-              </ul>
+          <div className="mt-8 rounded-3xl border border-white/10 bg-slate-950/80 p-6">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">What to expect</p>
+            <ul className="mt-5 space-y-4 text-slate-200">
+              <li className="flex gap-3">
+                <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-steel-400" aria-hidden="true" />
+                <span className="leading-7">Direct access to the live preview experience.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-steel-400" aria-hidden="true" />
+                <span className="leading-7">A focused demo centered on early HVAC fitting ordering workflows.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-steel-400" aria-hidden="true" />
+                <span className="leading-7">A simple handoff path for anyone who wants to review the concept in action.</span>
+              </li>
+            </ul>
+
+            <div className="mt-8">
+              <Button href="https://field2fab.petra413.com" variant="secondary" external>
+                Visit Field2Fab Preview
+              </Button>
             </div>
-          </article>
-
-          <article className="section-border rounded-[2rem] p-8">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-steel-400">Open the preview</p>
-              <h3 className="mt-3 text-2xl font-semibold text-white">Try Field2Fab now</h3>
-              <p className="mt-6 leading-7 text-slate-300">
-                The preview app is available at
-                <a
-                  href="https://field2fab.petra413.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="ml-2 font-semibold text-steel-300 underline decoration-steel-400/60 underline-offset-4 transition hover:text-white"
-                >
-                  field2fab.petra413.com
-                </a>
-                . Open it to explore the current ordering flow and see how the concept is shaping up.
-              </p>
-            </div>
-
-            <div className="mt-8 rounded-3xl border border-white/10 bg-slate-950/80 p-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">What to expect</p>
-              <ul className="mt-5 space-y-4 text-slate-200">
-                <li className="flex gap-3">
-                  <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-steel-400" aria-hidden="true" />
-                  <span className="leading-7">Direct access to the live preview experience.</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-steel-400" aria-hidden="true" />
-                  <span className="leading-7">A focused demo centered on early HVAC fitting ordering workflows.</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-steel-400" aria-hidden="true" />
-                  <span className="leading-7">A simple handoff path for anyone who wants to review the concept in action.</span>
-                </li>
-              </ul>
-
-              <div className="mt-8">
-                <Button href="https://field2fab.petra413.com" variant="secondary">
-                  Visit Field2Fab Preview
-                </Button>
-              </div>
-            </div>
-          </article>
-        </div>
+          </div>
+        </article>
       </SectionWrapper>
 
       <SectionWrapper
